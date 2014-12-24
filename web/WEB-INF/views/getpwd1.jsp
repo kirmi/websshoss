@@ -50,7 +50,7 @@
             <li><a href="#">台湾牛轧糖</a></li>
             <li><a href="#">蜜饯果脯</a></li>
             <li class="last">
-                <div id="welcome" class="welmsgdiv2"><span>您好，欢迎光临果果香。</span><a href="${ctx}/shinowit/login">登录</a><span class="Lloginfg">&nbsp;</span><a href="${ctx}/shinowit/reg">注册</a></div>
+                <div id="welcome" class="welmsgdiv2"><span>您好，欢迎光临果果香。</span><a href="${ctx}/shinowit/login">登录</a><span class="Lloginfg">&nbsp;</span><a href="${ctx}/reg">注册</a></div>
             </li>
         </ul>
     </div>

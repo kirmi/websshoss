@@ -50,7 +50,7 @@
             <li><a href="#">台湾牛轧糖</a></li>
             <li><a href="#">蜜饯果脯</a></li>
             <li class="last">
-                <div id="welcome" class="welmsgdiv2"><span>您好，欢迎光临果果香。</span><a href="${ctx}/shinowit/login">">登录</a><span class="Lloginfg">&nbsp;</span><a href="${ctx}/shinowit/reg">">注册</a></div>
+                <div id="welcome" class="welmsgdiv2"><span>您好，欢迎光临果果香。</span><a href="${ctx}/shinowit/login">">登录</a><span class="Lloginfg">&nbsp;</span><a href="${ctx}/reg">">注册</a></div>
             </li>
         </ul>
     </div>
@@ -92,7 +92,7 @@
                 </tr>
                 <tr>
                     <td class="sty03" valign="top" align="right">请输入验证码：</td>
-                    <td class="sty02" colspan="2" valign="top"><input name="Validate_Code" id="Validate_Code" class="inputSty01" onchange="CheckValidateCode()" style="width:100px;" type="text"><img id="Img1" style="vertical-align: top; padding: 0pt 0pt 0pt 8px;width: 76px;height: 23px" src="${ctx}/validCode.jsp" onclick="this.src='/PublicControls/NewValidateCode.aspx?height=25&amp;width=100&amp;codeLen=5&amp;photoType=2&amp;t='+new Date().getTime()" border="0">   <span class="sty03 sty04"><a href="javascript:validcheck()">看不清，换一张</a></span>
+                    <td class="sty02" colspan="2" valign="top"><input name="Validate_Code" id="Validate_Code" class="inputSty01" onchange="CheckValidateCode()" style="width:100px;" type="text"><img id="Img1" style="vertical-align: top; padding: 0pt 0pt 0pt 8px;width: 76px;height: 23px" src="<%=request.getContextPath()%>/validCode.jsp" onclick="this.src='/PublicControls/NewValidateCode.aspx?height=25&amp;width=100&amp;codeLen=5&amp;photoType=2&amp;t='+new Date().getTime()" border="0">   <span class="sty03 sty04"><a href="javascript:validcheck()">看不清，换一张</a></span>
                         <span class="Reginput" id="CheckValidateCode" style="width: 220px;"></span>
                     </td>
                 </tr>
