@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="websshoss:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="websshoss-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="websshoss:war exploded" />
+    </root>
+  </artifact>
+</component>
