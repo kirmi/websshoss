@@ -9,21 +9,24 @@ $(document).ready(function(){
            return
        }else{
            $("#span_CheckUsername").text("");
-           $("#Email").blur(function(){
-               $.ajax({
-                   type : "POST",
-                   url:"",
-                   data : {email:$("#Email").val()},
-                   success : function(msg){
-
-                   },
-                   errors : function(msg){
-
-                   }
-               })
-           });
+           $.ajax({
+               type : "post",
+               async : false,
+               url:_path+"/emailvalid",
+               data : {email:$("#Email").val()},
+               dataType : "text",
+               success : function(msg){
+                   $("#span_CheckUsername").text(msg)
+               },
+               error : function(msg){
+                   $("#span_CheckUsername").text(msg)
+               }
+           })
        }
     });
+//    $("#Email").blur(function(){
+//
+//    });
     $("#PassWord").blur(function(){
         if($("#PassWord").val()===""){
             $("#CheckRePassWord").text("密码不能为空");
