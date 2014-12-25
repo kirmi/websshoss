@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -69,17 +71,18 @@
     </div><!--guide01 end -->
     <!--body start -->
     <div id="body">
+        <form:form action="${ctx}/insert" modelAttribute="memeber">
         <div id="Login">
             <h1 align="left"><img src="<%=request.getContextPath()%>/images/pic_title.gif"></h1>
             <table width="800" border="0" align="center" cellpadding="0" cellspacing="0" class="lineJL">
                 <tbody><tr>
                     <td class="sty03" valign="top" width="236" align="right">请填写您的Email地址：</td>
-                    <td class="sty01" valign="top" width="219"><input name="Email" id="Email" type="text"><span class="Reginput" id="span_CheckUsername"></span></td>
+                    <td class="sty01" valign="top" width="219"><form:input path="email" id="Email"></form:input><span class="Reginput" id="span_CheckUsername"></span></td>
                     <td class="sty04" valign="top" width="425" align="left">　请填写有效的 Email地址作为下次登录的用户名，<br>　同时我们也会给这个地址发送您的帐户信息、订单通知等。</td>
                 </tr>
                 <tr>
                     <td class="sty03" valign="top" align="right">请设定密码：</td>
-                    <td class="sty01" valign="top"><input id="PassWord" name="PassWord" maxlength="16" value="" type="password"><span id="CheckRePassWord" class="Reginput"></span></td>
+                    <td class="sty01" valign="top"><form:password path="pwd" id="PassWord"></form:password><span id="CheckRePassWord" class="Reginput"></span></td>
                     <td class="sty03 sty04" valign="top" align="left">　密码请设为6-16位字母或数字</td>
                 </tr>
                 <tr>
@@ -89,7 +92,7 @@
                 </tr>
                 <tr>
                     <td class="sty03" valign="top" align="right">昵称：</td>
-                    <td class="sty01" valign="top"><input id="NewUserName" name="NewUserName" maxlength="16"  type="text"><span id="CheckNewUserName" class="Reginput"></span></td>
+                    <td class="sty01" valign="top"><form:input path="username" id="NewUserName"></form:input><span id="CheckNewUserName" class="Reginput"></span></td>
                     <td class="sty03 sty04" valign="top" align="left">　请输入中英文、数字、下划线或它们的组合</td>
                 </tr>
                 <tr>
@@ -100,7 +103,7 @@
                 </tr>
                 <tr>
                     <td>　</td>
-                    <td align="right"> <input src="<%=request.getContextPath()%>/images/submit.gif" style="width:91px; height:25px; border:0;" alt="完成注册" type="image"> </td>
+                    <td align="right"> <input style="margin-top:40px;width:91px; height:25px; border:0;background: red;color: #ffffff" value="完成注册" type="submit"> </td>
                     <td>　</td>
                 </tr>
                 <tr>
@@ -111,6 +114,7 @@
 
         </div>
         <br class="spacer" />
+        </form:form>
     </div>
     <!--footer start -->
     <div id="footer">
