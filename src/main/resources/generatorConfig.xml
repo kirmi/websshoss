@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <classPathEntry location="e://mysql-connector-java-5.1.26-bin.jar" />
+    <classPathEntry location="d://java//jdbc//sqljdbc4.jar" />
 
     <context id="DB2Tables" targetRuntime="MyBatis3">
 
@@ -17,9 +17,9 @@
             <property name="replaceString" value="Criteria" />
         </plugin>
         <plugin type="com.shinowit.mybatis.plugin.SelectByPage4MySqlPlugin"/>
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://127.0.0.1:3306/ssh?useUnicode=true"
-                        userId="root" password="shinow">
+        <jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+                        connectionURL="jdbc:sqlserver://localhost:1433;databaseName=sshoss"
+                        userId="sa" password="shinow">
         </jdbcConnection>
 
         <javaTypeResolver>
@@ -45,17 +45,12 @@
         </javaClientGenerator>
 
         <table tableName="TBa_DeliveryInfo">
-            <generatedKey column="DeliveryID" sqlStatement="MySql"
+            <generatedKey column="DeliveryID" sqlStatement="SqlServer"
                           identity="true" />
         </table>
 
-        <table tableName="TBa_LogInfo">
-            <!--<generatedKey column="student_id" sqlStatement="MySql"-->
-                          <!--identity="true" />-->
-        </table>
-
         <table tableName="TBa_MembeAddrInfo">
-            <generatedKey column="ID" sqlStatement="MySql"
+            <generatedKey column="ID" sqlStatement="SqlServer"
                           identity="true" />
         </table>
 
@@ -64,58 +59,42 @@
                           <!--identity="true" />-->
         </table>
 
-        <table tableName="TBa_SupplierInfo">
-            <generatedKey column="SupplierID" sqlStatement="MySql"
-                          identity="true" />
-        </table>
-
-        <!--<table tableName="TBa_SupplyRecordInfo">-->
-            <!--<generatedKey column="teacher_id" sqlStatement="MySql"-->
-                          <!--identity="true" />-->
-        <!--</table>-->
-
         <table tableName="TMe_MerchandiseCInfo">
-            <generatedKey column="MerchandiseCID" sqlStatement="MySql"
+            <generatedKey column="MerchandiseCID" sqlStatement="SqlServer"
                           identity="true" />
         </table>
 
         <table tableName="TMe_MerchandiseInfo">
-            <generatedKey column="MerchandiseID" sqlStatement="MySql"
+            <generatedKey column="MerchandiseID" sqlStatement="SqlServer"
                           identity="true" />
         </table>
 
         <table tableName="TMe_ProStatusInfo">
-            <generatedKey column="ProStatusID" sqlStatement="MySql"
+            <generatedKey column="ProStatusID" sqlStatement="SqlServer"
                           identity="true" />
         </table>
 
-        <!--<table tableName="TMe_StockInfo">-->
-            <!--<generatedKey column="teacher_id" sqlStatement="MySql"-->
-                          <!--identity="true" />-->
-        <!--</table>-->
-
         <table tableName="TMe_UnitInfo">
-            <generatedKey column="UnitID" sqlStatement="MySql"
+            <generatedKey column="UnitID" sqlStatement="SqlServer"
                           identity="true" />
         </table>
 
         <table tableName="TMe_OutStockInfo">
-            <generatedKey column="OutBillCode" sqlStatement="MySql"
+            <generatedKey column="OutBillCode" sqlStatement="SqlServer"
                           identity="true" />
         </table>
 
         <table tableName="TMe_OutStockDetailsInfo">
-            <generatedKey column="ID" sqlStatement="MySql"
+            <generatedKey column="ID" sqlStatement="SqlServer"
                           identity="true" />
         </table>
 
         <table tableName="TMe_OrderInfo">
-            <!--<generatedKey column="teacher_id" sqlStatement="MySql"-->
-                          <!--identity="true" />-->
+
         </table>
 
         <table tableName="TMe_OrderDetailsInfo">
-            <generatedKey column="ID" sqlStatement="MySql"
+            <generatedKey column="ID" sqlStatement="SqlServer"
                           identity="true" />
         </table>
 

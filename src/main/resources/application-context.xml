@@ -71,7 +71,7 @@
         <property name="host" value="smtp.qq.com"/>
         <property name="port" value="25"/>
         <property name="username" value="1039236687@qq.com"/>
-        <property name="password" value="521131492cbfq"/>
+        <property name="password" value="521131492cbfq"/><!--邮箱里面的独立码(既在开smtp时候的密码)-->
         <property name="javaMailProperties">
             <props>
                 <prop key="mail.smtp.auth">true</prop>
