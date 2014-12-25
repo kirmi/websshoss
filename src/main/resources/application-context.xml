@@ -67,6 +67,31 @@
     <context:component-scan base-package="com.shinowit">
         <context:exclude-filter type="regex" expression="com.shinowit.web.*"/>
     </context:component-scan>
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.qq.com"/>
+        <property name="port" value="25"/>
+        <property name="username" value="1039236687@qq.com"/>
+        <property name="password" value="521131492cbfq"/>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="simpleMailMessage" class="org.springframework.mail.SimpleMailMessage">
+        <property name="from" value="1039236687@qq.com"/>
+    </bean>
+
+    <!--<bean id="simpleMail" class="com.shinowit.tools.Email">-->
+        <!--<property name="mailSender" ref="mailSender"/>-->
+        <!--<property name="simpleMailMessage" ref="simpleMailMessage"/>-->
+    <!--</bean>-->
+    <bean id="springemail" class="com.shinowit.tools.SendHtmlMail">
+        <property name="passward" value="521131492cbfq"></property>
+        <property name="username" value="1039236687@qq.com"></property>
+        <property name="stmpServer" value="smtp.qq.com"></property>
+    </bean>
 
 </beans>
 

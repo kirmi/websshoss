@@ -130,44 +130,44 @@ ssssssssss<br />
             <!--hotsale start -->
             <div class="hotsale">
                 <dl>
-                    <dt><a href="inner-page.html" target="_new"><img src="<%=request.getContextPath()%>/images/T1.jpg" width="310" height="310" border="0" /></a></dt>
+                    <dt><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/T1.jpg" width="310" height="310" border="0" /></a></dt>
                     <dd>实心眼 特级薄皮奶香味 巴旦木 250g</dd>
-                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="inner-page.html" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
+                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
                 </dl>
                 <dl>
-                    <dt><a href="inner-page.html" target="_new"><img src="<%=request.getContextPath()%>/images/pro_02.jpg" width="160" height="160" border="0" /></a></dt>
+                    <dt><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/pro_02.jpg" width="160" height="160" border="0" /></a></dt>
                     <dd>推荐 新疆和田 玉枣 32元 肉厚 相当于昆仑山四星</dd>
-                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="inner-page.html" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
+                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
                 </dl>
                 <dl>
-                    <dt><a href="inner-page.html" target="_new"><img src="<%=request.getContextPath()%>/images/pro_03.jpg" width="160" height="160" border="0" /></a></dt>
+                    <dt><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/pro_03.jpg" width="160" height="160" border="0" /></a></dt>
                     <dd>推荐 新疆和田 玉枣 32元 肉厚 相当于昆仑山四星</dd>
-                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="inner-page.html" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
+                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
                 </dl>
                 <dl>
-                    <dt><a href="inner-page.html" target="_new"><img src="<%=request.getContextPath()%>/images/pro_04.jpg" width="160" height="160" border="0" /></a></dt>
+                    <dt><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/pro_04.jpg" width="160" height="160" border="0" /></a></dt>
                     <dd>推荐 新疆和田 玉枣 32元 肉厚 相当于昆仑山四星</dd>
-                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="inner-page.html" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
+                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
                 </dl>
                 <dl>
-                    <dt><a href="inner-page.html" target="_new"><img src="<%=request.getContextPath()%>/images/pro_05.jpg" width="160" height="160" border="0" /></a></dt>
+                    <dt><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/pro_05.jpg" width="160" height="160" border="0" /></a></dt>
                     <dd>推荐 新疆和田 玉枣 32元 肉厚 相当于昆仑山四星</dd>
-                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="inner-page.html" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
+                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
                 </dl>
                 <dl>
-                    <dt><a href="inner-page.html" target="_new"><img src="<%=request.getContextPath()%>/images/pro_06.jpg" width="160" height="160" border="0" /></a></dt>
+                    <dt><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/pro_06.jpg" width="160" height="160" border="0" /></a></dt>
                     <dd>推荐 新疆和田 玉枣 32元 肉厚 相当于昆仑山四星</dd>
-                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="inner-page.html" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
+                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
                 </dl>
                 <dl>
-                    <dt><a href="inner-page.html" target="_new"><img src="<%=request.getContextPath()%>/images/pro_07.jpg" width="160" height="160" border="0" /></a></dt>
+                    <dt><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/pro_07.jpg" width="160" height="160" border="0" /></a></dt>
                     <dd>推荐 新疆和田 玉枣 32元 肉厚 相当于昆仑山四星</dd>
-                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="inner-page.html" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
+                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
                 </dl>
                 <dl>
-                    <dt><a href="inner-page.html" target="_new"><img src="<%=request.getContextPath()%>/images/pro_08.jpg" width="160" height="160" border="0" /></a></dt>
+                    <dt><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/pro_08.jpg" width="160" height="160" border="0" /></a></dt>
                     <dd>推荐 新疆和田 玉枣 32元 肉厚 相当于昆仑山四星</dd>
-                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="inner-page.html" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
+                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
                 </dl>
                 <br class="spacer" />
             </div>
