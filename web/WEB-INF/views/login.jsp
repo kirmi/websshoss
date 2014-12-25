@@ -12,6 +12,8 @@
     <title>无标题文档</title>
     <link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet" type="text/css" />
     <link href="<%=request.getContextPath()%>/css/LoginAndReg.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/login.js"></script>
 </head>
 
 <body>
@@ -81,21 +83,21 @@
                             <div class="FTextArea"><span>用户名：</span>
                                 <input name="UserName" id="UserName" class="" type="text" />
                             </div>
-                            <span class="blank20"></span>
+                            <span class="blank20" id="id1"></span>
                             <div class="FTextArea"><span>密&nbsp;&nbsp;码：</span>
                                 <input name="PassWord" id="PassWord" class="" onkeypress="LoginKeyDown(event);" type="password" />
                             </div>
-                            <span class="blank15"></span>
+                            <span class="blank15" id="id2"></span>
                             <div class="btnReg">
                                 <button type="button" class="" onclick="checkshopinglogin();"></button>
                                 <span><a href="${ctx}/shinowit/getpwd1" title="" target="_new">密码忘记了？</a></span></div>
-                            <span class="blank20"></span> </div>
+                            <span class="blank20" ></span> </div>
                         <div id="con_one_2" style="display: none;"> <span class="blank20"></span>
                             <form name="PartnerForm" id="PartnerForm" method="post" style="margin: 0px;">
                                 <div class="FTextArea"><span>用户名：</span>
                                     <input name="PartnerUserName" id="PartnerUserName" class="" type="text" />
                                 </div>
-                                <span class="blank20"></span>
+                                <span class="blank20" ></span>
                                 <div class="FTextArea"><span>密&nbsp;&nbsp;码：</span>
                                     <input name="PartnerPassword" id="PartnerPassword" class="" onkeypress="PartLoginKeyDown(event);" type="password" />
                                 </div>
