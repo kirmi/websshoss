@@ -9,8 +9,8 @@
 .sty04{color:#0D8BCD;font-size: 12}
 .sty05{color:#333;}
 
-.blank15{clear:both;display:block;font-size:1px;overflow:hidden;height:15px;}
-.blank20{clear:both;display:block;font-size:1px;overflow:hidden;height:20px;}
+.blank15{clear:both;display:block;font-size:1px;overflow:hidden;height:20px;text-align: center;color: red}
+.blank20{clear:both;display:block;font-size:1px;overflow:hidden;height:20px;text-align: center;color: red}
 .regSetTabBox{width:343px;}
 .regSetTabMenu{width:343px;height:24px;border-bottom:1px solid #a10000;}
 #one1,#one2{margin:0px;padding:0px;width:74px;height:24px;line-height:24px;margin-right:5px;color:#949494;float:left;display:inline;text-align:center; background:url(../images/menuBg.gif) no-repeat;cursor:pointer; }
@@ -58,7 +58,7 @@
 .dlC .emailli{ height:45px;}
 .dlC .newusername{ height:25px;}
 
-.Reginput{display:block; height:16px; vertical-align:middle; text-align:center;margin-top:2px;line-height:140%;}
+.Reginput{display:block;vertical-align:middle; text-align:center;margin-top:2px;line-height:140%;text-align: left;color: red}
 .Error{border:1px solid #A10000; background-color:#f5f5f5;}
 .errorword{display:block; height:16px;margin-top:2px;clear:both; width:200px; margin:0 0 5px 114px;text-align:center; line-height:140%;}
 .rihtReg{border:1px solid #08a63a; background-color:#f5f5f5; color:#08a63a;}
