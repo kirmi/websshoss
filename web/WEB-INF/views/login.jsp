@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -14,6 +15,7 @@
     <link href="<%=request.getContextPath()%>/css/LoginAndReg.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/login.js"></script>
+    <script type="text/javascript">var _path = '${ctx}'</script>
 </head>
 
 <body>
@@ -51,7 +53,7 @@
             <li><a href="#">台湾牛轧糖</a></li>
             <li><a href="#">蜜饯果脯</a></li>
             <li class="last">
-                <div id="welcome" class="welmsgdiv2"><span>您好，欢迎光临果果香。</span><a href="${ctx}/shinowit/login">登录</a><span class="Lloginfg">&nbsp;</span><a href="${ctx}/reg">注册</a></div>
+                <div id="welcome" class="welmsgdiv2"><span>您好，欢迎光临果果香。</span><a href="${ctx}/shinowit/validlogin">登录</a><span class="Lloginfg">&nbsp;</span><a href="${ctx}/insert">注册</a></div>
             </li>
         </ul>
     </div>
@@ -69,6 +71,7 @@
     <!--body start -->
     <div id="body">
         <div id="Login">
+            <form:form action="${ctx}/shinowit/validlogin" modelAttribute="loginmem" method="post">
             <h1 align="left" style="width:343px;"><img src="<%=request.getContextPath()%>/images/pic_dl.gif"></h1>
             <div class="dlC">
                 <div class="regSetTabBox">
@@ -80,38 +83,23 @@
                     </div>
                     <div class="regSetTabCon">
                         <div style="display: block;" id="con_one_1"> <span class="blank20"></span>
-                            <div class="FTextArea"><span>用户名：</span>
-                                <input name="UserName" id="UserName" class="" type="text" />
+                            <div class="FTextArea"><span>邮箱：</span>
+                                <form:input path="email" id="UserName"></form:input>
                             </div>
                             <span class="blank20" id="id1"></span>
                             <div class="FTextArea"><span>密&nbsp;&nbsp;码：</span>
-                                <input name="PassWord" id="PassWord" class="" onkeypress="LoginKeyDown(event);" type="password" />
+                                <form:password path="pwd" id="PassWord"></form:password>
                             </div>
                             <span class="blank15" id="id2"></span>
                             <div class="btnReg">
-                                <button type="button" class="" onclick="checkshopinglogin();"></button>
+                                <div class="btnReg">
+                                    <input type="submit" style="width:80px;height:25px;margin-left:84px;border:none;cursor:pointer;float:left;display:inline;background: red; "/>
+                                </div>
                                 <span><a href="${ctx}/shinowit/getpwd1" title="" target="_new">密码忘记了？</a></span></div>
                             <span class="blank20" ></span> </div>
-                        <div id="con_one_2" style="display: none;"> <span class="blank20"></span>
-                            <form name="PartnerForm" id="PartnerForm" method="post" style="margin: 0px;">
-                                <div class="FTextArea"><span>用户名：</span>
-                                    <input name="PartnerUserName" id="PartnerUserName" class="" type="text" />
-                                </div>
-                                <span class="blank20" ></span>
-                                <div class="FTextArea"><span>密&nbsp;&nbsp;码：</span>
-                                    <input name="PartnerPassword" id="PartnerPassword" class="" onkeypress="PartLoginKeyDown(event);" type="password" />
-                                </div>
-                                <span class="blank15"></span>
-                                <div class="btnReg">
-                                    <button type="button" onclick="CheckPartLogin();" class=""></button>
-                                </div>
-                                <input name="Logintrue" value="true" type="hidden" />
-                                <input name="IsVjia" id="IsVjia" type="hidden" />
-                                <input name="IsLogIn" value="1" type="hidden" />
-                            </form>
-                            <span class="blank20"></span> </div>
                     </div>
                     <span class="blank20"></span>
+                    </form:form>
                     <div class="tishiArea">
                         <div class="tishiHead">温馨提示：</div>
                         <ul>

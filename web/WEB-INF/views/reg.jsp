@@ -54,7 +54,7 @@
             <li><a href="#">台湾牛轧糖</a></li>
             <li><a href="#">蜜饯果脯</a></li>
             <li class="last">
-                <div id="welcome" class="welmsgdiv2"><span>您好，欢迎光临果果香。</span><a href="${ctx}/shinowit/login">">登录</a><span class="Lloginfg">&nbsp;</span><a href="${ctx}/reg">">注册</a></div>
+                <div id="welcome" class="welmsgdiv2"><span>您好，欢迎光临果果香。</span><a href="${ctx}/shinowit/validlogin">">登录</a><span class="Lloginfg">&nbsp;</span><a href="${ctx}/reg">">注册</a></div>
             </li>
         </ul>
     </div>
@@ -71,7 +71,7 @@
     </div><!--guide01 end -->
     <!--body start -->
     <div id="body">
-        <form:form action="${ctx}/insert" modelAttribute="memeber">
+        <form:form action="${ctx}/insert" modelAttribute="memeber" method="post">
         <div id="Login">
             <h1 align="left"><img src="<%=request.getContextPath()%>/images/pic_title.gif"></h1>
             <table width="800" border="0" align="center" cellpadding="0" cellspacing="0" class="lineJL">
