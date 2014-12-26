@@ -1,12 +1,11 @@
 package com.shinowit.web;
 
-import com.shinowit.dao.mapper.RegStatusDao;
+import com.shinowit.dao.mapper.ToolsDao;
 import com.shinowit.dao.mapper.TbaMemberinfoMapper;
 import com.shinowit.entity.TbaMemberinfo;
 import com.shinowit.entity.TbaMemberinfoCriteria;
 import com.shinowit.tools.SendHtmlMail;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,7 +33,7 @@ public class RegController {
     private SendHtmlMail htmlMail;
 
     @Resource
-    private RegStatusDao regStatusDao;
+    private ToolsDao toolsDao;
 
     @RequestMapping("/emailvalid")//邮箱是否已存在
     public void emailvalid(@RequestParam("email") String emaildata,HttpServletResponse response){
@@ -122,7 +121,7 @@ public class RegController {
             name1 = mer.getUsername();
         }
         if(result.size()>0){
-            regStatusDao.regstatusinsert(name1,true);
+            toolsDao.regstatusinsert(name1,true);
             return "redirect:/shinowit/login";
         }
         request.setAttribute("success","注册失败，请重新填写");
