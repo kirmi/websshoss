@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -94,7 +95,7 @@ public class RegController {
         String sessioncode = request.getSession().getId();
         memberinfo.setRemark(sessioncode);
         int a = memdao.insert(memberinfo);
-        String smtpserver = "<请将此地址复制到地址栏里面进行最后的确认>http://10.2.25.19:8080/jihuoemail?validString="+sessioncode+"";
+        String smtpserver = "<请将此地址复制到地址栏里面进行最后的确认>http://10.2.25.19:8080/jihuoemail1/"+sessioncode+"";
         try {
             htmlMail.sendMessage(memberinfo.getEmail(),"用户注册",smtpserver);
         } catch (MessagingException e) {
@@ -108,8 +109,8 @@ public class RegController {
         }
         return "/reg";
     }
-    @RequestMapping("/jihuoemail")//激活判断并附加状态
-    public String validemail(@ModelAttribute("memeber") TbaMemberinfo memberinfo,@RequestParam("validString") String validsessioncode,HttpServletRequest request){
+    @RequestMapping("/jihuoemail1/{validString}")//用reset的风格激活判断并附加状态
+    public String validemail1(@ModelAttribute("memeber") TbaMemberinfo memberinfo,@PathVariable("validString") String validsessioncode,HttpServletRequest request){
         TbaMemberinfo member = new TbaMemberinfo();
         member.setRemark(validsessioncode);
         TbaMemberinfoCriteria criteria = new TbaMemberinfoCriteria();
@@ -122,9 +123,10 @@ public class RegController {
         }
         if(result.size()>0){
             regStatusDao.regstatusinsert(name1,true);
-            return "redirect:shinowit/login";
+            return "redirect:/shinowit/login";
         }
         request.setAttribute("success","注册失败，请重新填写");
         return "/reg";
     }
+
 }
