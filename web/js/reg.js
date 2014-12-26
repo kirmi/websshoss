@@ -11,7 +11,6 @@ $(document).ready(function(){
            $("#span_CheckUsername").text("");
            $.ajax({
                type : "post",
-               async : false,
                url:_path+"/emailvalid",
                data : {email:$("#Email").val()},
                dataType : "text",
@@ -24,9 +23,6 @@ $(document).ready(function(){
            })
        }
     });
-//    $("#Email").blur(function(){
-//
-//    });
     $("#PassWord").blur(function(){
         if($("#PassWord").val()===""){
             $("#CheckRePassWord").text("密码不能为空");
@@ -63,8 +59,21 @@ $(document).ready(function(){
     $("#Validate_Code").blur(function(){
         if(($("#Validate_Code").val()==="")||($("#Validate_Code").val().length)<0){
             $("#CheckValidateCode").text("验证码不能为空")
+
         }else{
-            $("#CheckValidateCode").text("")
+                $.ajax({
+                    type : "POST",
+                    url : _path+"/validate",
+                    data : {checkvalue:$("#Validate_Code").val()},
+                    dataType:"Text",
+                    success : function(msg){
+                        $("#CheckValidateCode").text(msg);
+                    },
+                    error : function(msg){
+                        $("#CheckValidateCode").text(msg);
+                    }
+                })
+            $("#CheckValidateCode").text("");
         }
     })
 });
