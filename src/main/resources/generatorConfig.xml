@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <classPathEntry location="d://java//jdbc//sqljdbc4.jar" />
+    <classPathEntry location="d://java//jdbc//sqljdbc4-4.0.2206.100.jar" />
 
     <context id="DB2Tables" targetRuntime="MyBatis3">
 
@@ -16,9 +16,9 @@
             <property name="searchString" value="Example$" />
             <property name="replaceString" value="Criteria" />
         </plugin>
-        <plugin type="com.shinowit.mybatis.plugin.SelectByPage4MySqlPlugin"/>
+        <plugin type="com.shinowit.mybatis.plugin.SelectByPage4SqlServerPlugin"/>
         <jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-                        connectionURL="jdbc:sqlserver://localhost:1433;databaseName=sshoss"
+                        connectionURL="jdbc:sqlserver://localhost:1433;databaseName=salesystem"
                         userId="sa" password="shinow">
         </jdbcConnection>
 
@@ -56,7 +56,7 @@
 
         <table tableName="TBa_MemberInfo">
             <!--<generatedKey column="teacher_id" sqlStatement="MySql"-->
-                          <!--identity="true" />-->
+            <!--identity="true" />-->
         </table>
 
         <table tableName="TMe_MerchandiseCInfo">
@@ -98,6 +98,14 @@
                           identity="true" />
         </table>
 
+        <table tableName="TAu_Gowuche">
+            <generatedKey column="ID" sqlStatement="SqlServer"
+                          identity="true" />
+        </table>
+        <table tableName="Address">
+            <generatedKey column="id" sqlStatement="SqlServer"
+                          identity="true" />
+        </table>
     </context>
 </generatorConfiguration>
 

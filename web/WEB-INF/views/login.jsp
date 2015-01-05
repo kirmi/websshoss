@@ -10,12 +10,20 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>无标题文档</title>
+    <title>登陆</title>
     <link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet" type="text/css" />
     <link href="<%=request.getContextPath()%>/css/LoginAndReg.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/login.js"></script>
     <script type="text/javascript">var _path = '${ctx}'</script>
+    <script type="text/javascript">
+        <%--打印错误是的信息--%>
+        <%
+        if(request.getAttribute("username")!=null){
+        out.println("alert('"+request.getAttribute("username")+"')");
+                       }
+        %>
+    </script>
 </head>
 
 <body>
@@ -83,8 +91,8 @@
                     </div>
                     <div class="regSetTabCon">
                         <div style="display: block;" id="con_one_1"> <span class="blank20"></span>
-                            <div class="FTextArea"><span>邮箱：</span>
-                                <form:input path="email" id="UserName"></form:input>
+                            <div class="FTextArea"><span>用户名：</span>
+                                <form:input path="username" id="UserName"></form:input>
                             </div>
                             <span class="blank20" id="id1"></span>
                             <div class="FTextArea"><span>密&nbsp;&nbsp;码：</span>

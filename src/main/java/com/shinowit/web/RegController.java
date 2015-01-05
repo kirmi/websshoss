@@ -1,6 +1,5 @@
 package com.shinowit.web;
 
-import com.shinowit.dao.mapper.ToolsDao;
 import com.shinowit.dao.mapper.TbaMemberinfoMapper;
 import com.shinowit.entity.TbaMemberinfo;
 import com.shinowit.entity.TbaMemberinfoCriteria;
@@ -20,9 +19,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.regex.*;
-/**
- * Created by Administrator on 2014/12/24.
- */
+
 @Controller
 public class RegController {
 
@@ -32,8 +29,8 @@ public class RegController {
     @Resource
     private SendHtmlMail htmlMail;
 
-    @Resource
-    private ToolsDao toolsDao;
+//    @Resource
+//    private RemarkInsertDao remarkInsertDao;
 
     @RequestMapping("/emailvalid")//邮箱是否已存在
     public void emailvalid(@RequestParam("email") String emaildata,HttpServletResponse response){
@@ -43,7 +40,7 @@ public class RegController {
         List<TbaMemberinfo> memelist = memdao.selectByExample(criteria);
         if(memelist.size()>0){
             try {
-                response.getWriter().println("邮箱已存在，请重新输入");
+                response.getWriter().println("邮箱已存在，请直接用该邮箱登录");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -67,6 +64,7 @@ public class RegController {
             }
         }
     }
+    //真正插入数据库的语句
     @RequestMapping("/insert")//插入数据库+发送邮箱激活
     public String reginsert(@ModelAttribute("memeber") TbaMemberinfo memberinfo,BindingResult bindingResult,HttpServletRequest request){
         if(bindingResult.hasErrors()){
@@ -75,10 +73,12 @@ public class RegController {
         if(memberinfo.getEmail()==null){
             return "/reg";
         }
+        //设定的email的格式是什么
         String regex="^([a-zA-Z0-9_\\.\\-])+\\@(([a-zA-Z0-9\\-])+\\.)+([a-zA-Z0-9]{2,4})+$";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(memberinfo.getEmail());
         boolean result = m.find();
+        //以上是邮箱的验证
         if(result==false){
             request.setAttribute("email","请输入正确的邮箱");
             return "/reg";
@@ -91,10 +91,11 @@ public class RegController {
             request.setAttribute("pwd","密码不能为空");
             return "/reg";
         }
+        //获取session的id值
         String sessioncode = request.getSession().getId();
-        memberinfo.setRemark(sessioncode);
+        //memberinfo.setRemark(sessioncode);
         int a = memdao.insert(memberinfo);
-        String smtpserver = "<请将此地址复制到地址栏里面进行最后的确认>http://10.2.25.19:8080/jihuoemail1/"+sessioncode+"";
+        String smtpserver = "点击激活账号：http://10.2.25.199:8080/jihuoemail1/"+sessioncode+"";
         try {
             htmlMail.sendMessage(memberinfo.getEmail(),"用户注册",smtpserver);
         } catch (MessagingException e) {
@@ -120,12 +121,13 @@ public class RegController {
         for(TbaMemberinfo mer : result){
             name1 = mer.getUsername();
         }
-        if(result.size()>0){
-            toolsDao.regstatusinsert(name1,true);
-            return "redirect:/shinowit/login";
+        if(result.size()<0){
+//            remarkInsertDao.updateremark(name1);
+            return "redirect:/shinowit/validlogin";
+        }else{
+            request.setAttribute("success","注册失败，请重新填写");
+            return "/reg";
         }
-        request.setAttribute("success","注册失败，请重新填写");
-        return "/reg";
     }
 
 }

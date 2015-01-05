@@ -75,8 +75,8 @@
                     <DIV class="pointErrorMsg">您目前的积分为：<SPAN id="myPointNumber">0</SPAN>分，本次购物需支付：<SPAN
                             id="needPointNumber">0</SPAN>分，请修改购物车中的积分换购产品。</DIV><IMG id="imgPointError"
                                                                                      src="<%=request.getContextPath()%>/images/jifenbuzhu.gif" useMap=#Map border=0> <MAP id="Map"
-                                                                                                                                            name=Map><AREA shape=RECT coords=962,9,972,19
-                                                                                                                                                           href="javascript:ClosePointError();"></MAP></DIV>
+                                                                                                                                                                          name=Map><AREA shape=RECT coords=962,9,972,19
+                                                                                                                                                                                         href="javascript:ClosePointError();"></MAP></DIV>
                 <DIV id=OffProductList></DIV>
                 <TABLE cellSpacing=0 cellPadding=0 width=100% border=0>
                     <TBODY>

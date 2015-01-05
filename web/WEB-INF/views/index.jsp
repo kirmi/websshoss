@@ -1,3 +1,4 @@
+<%@ page import="com.shinowit.entity.TbaMemberinfo" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -6,11 +7,15 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>启奥</title>
     <link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/index.js"></script>
+    <script type="text/javascript">var totalnum='${zongyeshu}'</script>
+    <script type="text/javascript">var dangqianye='${current}'</script>
 </head>
 
 <body>
@@ -24,7 +29,7 @@
             <li><a href="${ctx}/shinowit/index" class="hover">首页</a></li>
             <li><a href="#">关于我们</a></li>
             <li><a href="#">在线客服</a></li>
-            <li class="chart"><a href="${ctx}/shinowit/chart">购物车</a></li>
+            <li class="chart"><a href="${ctx}/shinowit/chart?logname=${sessionScope.loginsession}">购物车</a></li>
         </ul>
         <p class="navRight"></p>
         <p class="topDiv"></p>
@@ -82,37 +87,19 @@
             <!--left start -->
             <div id="left">
                 <h2>商品分类</h2>
-                <ul>
-                    <li><a href="${ctx}/shinowit/innerpage">特级椒盐味</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">壳杏仁 23元/500克 </a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">壳杏仁 23元/500克 </a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">壳杏仁 23元/500克</a></li>
-                    <li><a href="#">壳杏仁 23元/500克 </a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">壳杏仁 23元/500克</a></li>
-                </ul>
-                <h2 class="detail">纸皮巴旦木龙果</h2>
-                <ul class="leftLink">
-                    <li><a href="#">特级椒盐味</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">特级椒盐味</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">特级椒盐味</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">特级椒盐味</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                    <li><a href="#">纸皮巴旦木龙果</a></li>
-                </ul>
+                <c:forEach items="${index_show}" var="listclass">
+                    <ul>
+                        <li><a href="${ctx}/shinowit/index?merclassidlistmany=${listclass.merchandisecid}">${listclass.merchandisecname}</a></li>
+                    </ul>
+                </c:forEach>
+                <h2 class="detail">商品详细信息</h2>
+                <div id="uniqueid2">
+                    <c:forEach items="${detalist}" var="merchandise">
+                        <ul class="leftLink">
+                            <li><a class="unique3" href="<%=request.getContextPath()%>/shinowit/index?clickcount=${merchandise.merchandiseid}&merclassidlistmany=${mijhd}">${merchandise.merchandisename}</a></li>
+                        </ul>
+                    </c:forEach>
+                </div>
                 <br class="spacer" />
 <span style="color:#f9c441;">ssss<br />
 ssssssssss<br />
@@ -128,50 +115,33 @@ ssssssssss<br />
             <div class="hotsale_ad"><img src="<%=request.getContextPath()%>/images/pic1.jpg" width="780" height="274" /></div>
             <!--hotsale_ad end -->
             <!--hotsale start -->
+            <h2>经典推荐</h2>
             <div class="hotsale">
-                <dl>
-                    <dt><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/T1.jpg" width="310" height="310" border="0" /></a></dt>
-                    <dd>实心眼 特级薄皮奶香味 巴旦木 250g</dd>
-                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
-                </dl>
-                <dl>
-                    <dt><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/pro_02.jpg" width="160" height="160" border="0" /></a></dt>
-                    <dd>推荐 新疆和田 玉枣 32元 肉厚 相当于昆仑山四星</dd>
-                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
-                </dl>
-                <dl>
-                    <dt><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/pro_03.jpg" width="160" height="160" border="0" /></a></dt>
-                    <dd>推荐 新疆和田 玉枣 32元 肉厚 相当于昆仑山四星</dd>
-                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
-                </dl>
-                <dl>
-                    <dt><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/pro_04.jpg" width="160" height="160" border="0" /></a></dt>
-                    <dd>推荐 新疆和田 玉枣 32元 肉厚 相当于昆仑山四星</dd>
-                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
-                </dl>
-                <dl>
-                    <dt><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/pro_05.jpg" width="160" height="160" border="0" /></a></dt>
-                    <dd>推荐 新疆和田 玉枣 32元 肉厚 相当于昆仑山四星</dd>
-                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
-                </dl>
-                <dl>
-                    <dt><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/pro_06.jpg" width="160" height="160" border="0" /></a></dt>
-                    <dd>推荐 新疆和田 玉枣 32元 肉厚 相当于昆仑山四星</dd>
-                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
-                </dl>
-                <dl>
-                    <dt><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/pro_07.jpg" width="160" height="160" border="0" /></a></dt>
-                    <dd>推荐 新疆和田 玉枣 32元 肉厚 相当于昆仑山四星</dd>
-                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
-                </dl>
-                <dl>
-                    <dt><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/pro_08.jpg" width="160" height="160" border="0" /></a></dt>
-                    <dd>推荐 新疆和田 玉枣 32元 肉厚 相当于昆仑山四星</dd>
-                    <dd><span class="viv1">￥:18.0</span><span class="viv2"><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
-                </dl>
+                <c:forEach items="${show_page}" var="pagelist">
+                    <dl>
+                        <dt><a href="${ctx}/shinowit/innerpage?goodsname=${pagelist.merchandisename}&goodsprice=${pagelist.price}&shangpintupian=${pagelist.picpath}" target="_new"><img src=${ctx}/${pagelist.picpath} width="310" height="310" border="0" /></a></dt>
+                        <dd>${pagelist.merchandisename}</dd>
+                        <dd><span class="viv1">￥:${pagelist.price}</span><span class="viv2"><a href="${ctx}/shinowit/innerpage" target="_new"><img src="<%=request.getContextPath()%>/images/vivioow_b2.jpg" width="80" height="24" border="0" /></a></span></dd>
+                    </dl>
+                </c:forEach>
                 <br class="spacer" />
             </div>
+            <div>
+
+            </div>
             <!--hotsale end -->
+            <div style="background-color: #08a63a;width:780px;height:2px;margin-top:-13px">
+                <table style="width: 500px;margin-left:150px">
+                    <tr >
+                        <td>总页数 ${zongyeshu} 页</td>
+                        <td>当前页 ${current} 页</td>
+                        <td ><a id="nn1" href="${ctx}/shinowit/index?shang=${current-1}&clickcount=${nnsdds}">上一页</a></td>
+                        <td><a id="dd1" href="${ctx}/shinowit/index?shang=${current+1}&clickcount=${nnsdds}">下一页</a></td>
+                        <td>跳转到第<input type="text" style="width: 25px" id="numbers" name="numbers">页<input type="submit" onclick="sendto()"></td>
+                    </tr>
+                </table>
+
+            </div>
         </div>
         <!--mid end -->
         <br class="spacer" />
