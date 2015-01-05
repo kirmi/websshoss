@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -15,7 +16,8 @@
     <link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet" type="text/css" />
     <link href="<%=request.getContextPath()%>/css/LoginAndReg.css" rel="stylesheet" type="text/css" />
     <link href="<%=request.getContextPath()%>/css/gmxx.css" rel="stylesheet" type="text/css" />
-
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/chart1.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.9.1.js"></script>
 </head>
 
 <body>
@@ -130,75 +132,23 @@
                             <tr class="trSty01" bgcolor="#7a7f89">
                                 <td class="reusableColor5 xxSty01" align="left" height="30">&nbsp;&nbsp;&nbsp;&nbsp;请输入新的 <strong>配送地址</strong></td>
                             </tr>
-                            <tr>
-                                <td align="center" valign="top">
-                                    <ul class="psAdd" align="left">
-                                        <li>
-                                            <p class="pSty01" align="right">收货人姓名：</p>
-                                            <p class="pSty02 reusableColor3" align="left">
-                                                <input name="Name" id="Name" size="22" onchange="ChecktheForm_Name()" type="text" />
-                                                &nbsp;&nbsp;<span class="reusableColor4">*</span>&nbsp;&nbsp;
-                                                请准确填写真实姓名，以便确保商品准确无误送达。</p>
-                                        </li>
-                                        <li class="conLi1"><span class="errorstring" id="errorName"></span></li>
-                                        <li>
-                                            <p class="pSty01" align="right">配送省份/直辖市：</p>
-                                            <p>
-                                                <select id="ProvinceID" name="ProvinceID" onchange="ShowCity(this.options[selectedIndex].text);CheckProvince()">
-                                                    <option selected="selected" value="">--请选择--</option>
-                                                    <option value="%e5%8c%97%e4%ba%ac">北京</option>
-                                                    <option value="%e5%a4%a9%e6%b4%a5">天津</option>
-                                                </select>
-                                                &nbsp;&nbsp;市：
-                                                <select id="CityID" name="CityID" onchange="ShowArea(this.options[selectedIndex].text);CheckCity()">
-                                                    <option selected="selected" value="">--请选择--</option>
-                                                </select>
-                                                &nbsp;&nbsp;县/区：
-                                                <select id="AreaID" name="AreaID" onchange="GetPostalCodeNew(this.options[this.selectedIndex].text,'CityID','ProvinceID'),ShowV(this.options[this.selectedIndex].text);CheckArea()">
-                                                    <option selected="selected" value="">--请选择--</option>
-                                                </select>
-                                                &nbsp;&nbsp;<span class="reusableColor4">*</span>&nbsp;&nbsp; </p>
-                                        </li>
-                                        <li class="conLi2"><span id="errorArea"></span></li>
-                                        <li>
-                                            <p class="pSty01" align="right">详细地址：</p>
-                                            <p class="pSty02">
-                                                <input name="Address" id="Address" size="40" onchange="ChecktheForm_Address()" maxlength="500" type="text" />
-                                                &nbsp;&nbsp;<span class="reusableColor4">*</span>&nbsp;&nbsp; <br />
-                                                <span class="fontSty reusableColor3">862城市送货上门，货到付款。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="reusableColor1"><a href="#" target="_blank"> 查看详细的配送范围 </a></span></span> </p>
-                                        </li>
-                                        <li class="conLi3"><span id="errorAddress" class="errorstring"></span></li>
-                                        <li>
-                                            <p class="pSty01" align="right">邮政编码：</p>
-                                            <p class="pSty02 reusableColor3">
-                                                <input name="Zip" id="Zip" size="7" onchange="ChecktheForm_Zip()" type="text" />
-                                                &nbsp;&nbsp;<span class="reusableColor4">*</span>&nbsp;&nbsp; <span id="SetPostalCode"></span> </p>
-                                        </li>
-                                        <li class="conLi4"><span id="errorPostal" class="errorstring"></span></li>
-                                        <li>
-                                            <p class="pSty01" align="right">固定电话：</p>
-                                            <p class="pSty02">
-                                                <input name="Tel" id="Tel" onchange="ChecktheForm_Tel()" size="12" type="text" />
-                                                <span id="PhoneCode"></span> </p>
-                                        </li>
-                                        <li class="conLi5"><span id="errorPhone" class="errorstring"></span></li>
-                                        <li>
-                                            <p class="pSty01" align="right">手机：</p>
-                                            <p class="pSty02 reusableColor3">
-                                                <input name="Mobile" id="Mobile" size="22" onchange="ChecktheForm_Tel()" type="text" />
-                                                手机与固定电话至少有一项必填 </p>
-                                        </li>
-                                        <li class="conLi6"><span id="errorMobile"></span></li>
-                                        <li class="conLi7"><span class="addSpanSty"><a href="${ctx}/shinowit/chart02"><img src="<%=request.getContextPath()%>/images/button_pszADd.gif" alt="" border="0" onclick="#" /></a></span></li>
-                                    </ul></td>
-                            </tr>
-                            <tr class="trSty01" bgcolor="#dcdfe5">
-                                <td class="reusableColor3 xxSty01" align="left" height="26">&nbsp;&nbsp;&nbsp;&nbsp;接下来您还需要选择 配送方式、支付方式、送货时间。</td>
-                            </tr>
-                            </tbody>
                         </table>
+                        <from:form action="${ctx}/shinowit/chart01" modelAttribute="dizhibaocun" method="post">
+                       <div style="margin-left:300px;width: 200px">
+                           <ul>
+                               <li style="margin-top: 10px"><label>收货人姓名:</label><from:input path="recman" id="recman"></from:input>*   </li>
+                               <li style="margin-top: 10px"><label>配送省份/直辖市:</label><from:select path="" items="${shengshow}" itemLabel="name" itemValue="shengid" id="shenghui" onchange="likai()"></from:select> 市：<from:select path="" items="${shishowlists}" itemLabel="shiname" itemValue="shiid" id="shishow"></from:select>区/县：<from:select path="" items="${shishowlists}" itemLabel="shiname" itemValue="shiid" id="shishow" ></from:select>*</li>
+                               <li style="margin-top: 10px"><label>详细地址:</label><from:input path="recman" id="recman"></from:input>*</li>
+                               <li style="margin-top: 10px"><label>邮政编码:</label><from:input path="recman" id="recman"></from:input>*</li>
+                               <li style="margin-top: 10px"><label>固定电话:</label><from:input path="recman" id="recman"></from:input></li>
+                               <li style="margin-top: 10px"><label>手机:</label><from:input path="recman" id="recman"></from:input> *     固定电话和手机至少写一个</li>
+                           </ul>
+                           <input type="button" style="margin-top: 20px; margin-left:50px;width: 110px;height:23px;border:none;background: url('<%=request.getContextPath()%>/images/button_pszADd.gif')"/>
+                       </div>
+                        </from:form>
                     </div>
-                </div></td>
+                </div>
+
             </tr>
             </tbody>
         </table>

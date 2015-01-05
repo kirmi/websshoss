@@ -106,6 +106,19 @@
             <generatedKey column="id" sqlStatement="SqlServer"
                           identity="true" />
         </table>
+        <!--地址查询-->
+        <table tableName="sheng">
+            <generatedKey column="shengid" sqlStatement="SqlServer"
+                          identity="true" />
+        </table>
+        <table tableName="shi">
+            <generatedKey column="shiid" sqlStatement="SqlServer"
+                          identity="true" />
+        </table>
+        <table tableName="qu">
+            <generatedKey column="quid" sqlStatement="SqlServer"
+                          identity="true" />
+        </table>
     </context>
 </generatorConfiguration>
 

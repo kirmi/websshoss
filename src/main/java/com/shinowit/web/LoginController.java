@@ -35,7 +35,7 @@ public class LoginController {
             return "/login";
         }
         TbaMemberinfoCriteria criteria=new TbaMemberinfoCriteria();
-        //TbaMemberinfoCriteria.Criteria checkinfo=criteria.createCriteria();
+        TbaMemberinfoCriteria.Criteria checkinfo=criteria.createCriteria();
         List<TbaMemberinfo> infocheck=memberdao.selectByExample(criteria);
         for (TbaMemberinfo sho:infocheck){
             if(sho.getRemark()==null){

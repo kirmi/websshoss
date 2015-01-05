@@ -98,7 +98,7 @@
                                 <td align="center"><input name="OrderAmount_2" id="OrderAmount_2" maxlength="3" onchange="changeSuccess=false;EditProductCount('00072650','1',this)" onkeypress=" if((arguments[0] || window.event).keyCode==13){this.blur(); return false;}" style="width: 20px; height: 15px; color: rgb(75, 75, 75);" value="1" type="text" /></td>
                                 <td align="center">￥<span id="Pdt_price">${valshow.price}</span></td>
                                 <td align="center"><a href="${cxt}/shinowit/del?shangpinid=${valshow.id}&userid=${liname}">删除</a></td>
-                                <td align="center"><input name="check_name"  type="checkbox" style="width: 50px;cursor: hand"></td>
+                                <td align="center"><input name="check_name" id="firstcheckboxid" value="${valshow.id}"  type="checkbox" style="width: 50px;cursor: hand"></td>
                             </tr>
                         </c:forEach>
                     </table>
