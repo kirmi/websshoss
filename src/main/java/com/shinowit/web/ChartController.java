@@ -1,11 +1,16 @@
 package com.shinowit.web;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.shinowit.dao.mapper.TauGowucheMapper;
 import com.shinowit.entity.TauGowuche;
 import com.shinowit.entity.TauGowucheCriteria;
+import javafx.scene.chart.Chart;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
@@ -85,4 +90,17 @@ public class ChartController {
         dao.deleteByExample(criteria);
         return "redirect:/shinowit/chart?logname="+delcurrent;
     }
+//    //将数据添加到jession的文件中
+//    @RequestMapping("/sdedf")
+//    public void showgodds(String jsonData,HttpServletRequest request){
+//        try {
+//            ObjectMapper objectMapper = new  ObjectMapper();
+//            List<Chart> sessionlist= objectMapper.readValue(jsonData, new TypeReference<List<Chart>>(){});
+//            if(sessionlist.size()>0){
+//                request.getSession().setAttribute("src",sessionlist);
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 }

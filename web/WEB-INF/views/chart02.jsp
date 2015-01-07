@@ -7,14 +7,19 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<%
+    HttpSession currs=request.getSession();
+
+%>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>无标题文档</title>
     <link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet" type="text/css" />
     <link href="<%=request.getContextPath()%>/css/LoginAndReg.css" rel="stylesheet" type="text/css" />
     <link href="<%=request.getContextPath()%>/css/gmxx.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript"> var sessiionsee='<%=currs.getAttribute("loginsession")%>';var _path="${ctx}"</script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/chart2.js"></script>
 </head>
-
 <body>
 <div id="box">
     <!--top start -->
@@ -88,11 +93,10 @@
                     <tr>
                         <td><div class="titleSty"> <span id="Label_Addressee">
         <h2 align="left">收货人信息<span class="reusableColor4 typeH2"><a href="#"><span class="addFontCol">修改</span></a></span></h2>
-        <h4 align="left"><span class="reusableColor3 letterSpac">收货人</span><span class="reusableColor3 letterSpac1">：</span>刘德华<br />
-            <span class="reusableColor3">地　　区：</span>河北&nbsp;&nbsp;-&nbsp;&nbsp;唐山市&nbsp;&nbsp;-&nbsp;&nbsp;路北区<br />
-            <span class="reusableColor3">收货地址：</span>唐山火车站&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
-            <span class="reusableColor3">邮政编码：</span>063000<br />
-            <span class="reusableColor3">联系方式：</span>138********</h4>
+        <h4 align="left"><span class="reusableColor3 letterSpac">收货人</span><span class="reusableColor3 letterSpac1">：</span>${gtess.recman}<br />
+            <span class="reusableColor3">收货地址：</span>${gtess.recaddress}<br />
+            <span class="reusableColor3">邮政编码：</span>${gtess.hashCode()}<br />
+            <span class="reusableColor3">联系方式：</span>${gtess.tel}</h4>
       </span> </div></td>
                     </tr>
                     </tbody>
@@ -114,7 +118,7 @@
                         </div></td>
                     </tr>
                     <tr>
-                        <td class="typeTd2"><span class="addDeleteSty addFontCol"><a href="#"><span class="addFontCol">修改</span></a><span class="addFontCol">　|</span>　<a href="#"><span class="addFontCol">删除</span></a></span><span class="addSpanSty"><a href="${ctx}/shinowit/chart03"><img src="<%=request.getContextPath()%>/images/button_qr.gif" border="0" onclick="#" /></a></span><br />
+                        <td class="typeTd2"><span class="addDeleteSty addFontCol"><a href="#"><span class="addFontCol" style="cursor: hand">修改订单信息</span></a><span class="addFontCol">　|</span>　<span class="addFontCol" style="cursor: hand" onclick="shanchudingdan()">删除订单信息</span></span><span class="addSpanSty"><a href="${ctx}/shinowit/chart03"><img src="<%=request.getContextPath()%>/images/button_qr.gif" border="0" onclick="#" /></a></span><br />
                         </td>
                     </tr>
                     <tr>

@@ -1,3 +1,4 @@
+
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -11,14 +12,15 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>无标题文档</title>
+
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/chart.js"></script>
     <link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet" type="text/css" />
     <link href="<%=request.getContextPath()%>/css/LoginAndReg.css" rel="stylesheet" type="text/css" />
     <link href="<%=request.getContextPath()%>/css/gmxx.css" rel="stylesheet" type="text/css" />
 </head>
-
 <body>
+<script type="text/javascript">var _path='${ctx}'</script>
 <div id="box">
     <!--top start -->
     <div id="top">
@@ -80,7 +82,7 @@
                                                                                                                                    name=Map><AREA shape=RECT coords=962,9,972,19
                                                                                                                                                   href="javascript:ClosePointError();"></MAP></DIV>
                 <DIV class="bxSty"><!--Product-->
-                    <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0" class="tabSty01" id="shoppingCatTable">
+                    <table id="tablechackedid" width="90%" border="0" align="center" cellpadding="0" cellspacing="0" class="tabSty01">
                         <tr class="trSty01" bgcolor="#7a7f89">
                             <td align="center" height="32">商品</td>
                             <td align="center" height="32">名称</td>
@@ -88,17 +90,18 @@
                             <td align="center" height="32">数量</td>
                             <td align="center" height="32">小计</td>
                             <td align="center">操作</td>
-                            <td align="center">全选<input type="checkbox" onclick="selectAll(this);" style="cursor: hand"></td>
+                            <td align="center">全选<input type="checkbox" style="cursor: hand;width: 20px;  height:
+                            20px" id="allchecked" money="0.00" goodname=""></td>
                         </tr>
                         <c:forEach items="${listshow}" var="valshow">
-                            <tr>
+                            <tr id="uniquetrid">
                                 <td width="160" height="160" align="center" valign="middle"><input type="hidden" value="${valshow.id}"/><span class="imgw"><a href="#" target="_blank"><img src=${ctx}/${valshow.pth} alt="带帽水洗收腰休闲夹克 灰色" border="0" width="160" /></a></span></td>
                                 <td><a href="#" target="_blank"><span class="STYLE5">${valshow.name}</span></a></td>
-                                <td align="center">￥<span id="00072650">${valshow.price}</span></td>
-                                <td align="center"><input name="OrderAmount_2" id="OrderAmount_2" maxlength="3" onchange="changeSuccess=false;EditProductCount('00072650','1',this)" onkeypress=" if((arguments[0] || window.event).keyCode==13){this.blur(); return false;}" style="width: 20px; height: 15px; color: rgb(75, 75, 75);" value="1" type="text" /></td>
-                                <td align="center">￥<span id="Pdt_price">${valshow.price}</span></td>
+                                <td align="center">￥<span id="danjia${valshow.id}">${valshow.price}</span></td>
+                                <td style="width:85px"><div><img src="<%=request.getContextPath()%>/images/jiahao.jpg" id="jia${valshow.id}" onclick="mousedown1(${valshow.id})" style="cursor: hand"><input type="text" id="shuliang${valshow.id}" value="1" style="width: 30px;" maxlength="3" /><img src="<%=request.getContextPath()%>/images/jianshao.jpg" onclick="mousedown(${valshow.id})" style="cursor: hand;"></div></td>
+                                <td align="center">￥<span id="Pdt_price${valshow.id}">${valshow.price}</span></td>
                                 <td align="center"><a href="${cxt}/shinowit/del?shangpinid=${valshow.id}&userid=${liname}">删除</a></td>
-                                <td align="center"><input name="check_name" id="firstcheckboxid" value="${valshow.id}"  type="checkbox" style="width: 50px;cursor: hand"></td>
+                                <td align="center"><input name="check_name" money="${valshow.price}"goodname="${valshow.name}"  image="${valshow.pth}"  id="checkid${valshow.id}"  onclick="singlecheck()" type="checkbox" style="width: 20px;height:20px;cursor: hand"></td>
                             </tr>
                         </c:forEach>
                     </table>
@@ -107,15 +110,15 @@
                         <TR>
                             <TD class="tdStyProductTotal" vAlign=top align=right>产品数量总计：${zhongshu} <SPAN
                                     class="colSty " id="spTotalCount"></SPAN><SPAN
-                                    class="colSty sty008">件</SPAN>赠送积分总计：${zhongshu}<SPAN class="colSty"
-                                                                                          id="giftPoint">0</SPAN><SPAN class="colSty sty008">分</SPAN>花费积分总计：<SPAN
-                                    class="colSty " id="totalPoint">0</SPAN><SPAN
-                                    class="colSty sty010">分</SPAN><SPAN id="decspan">产品金额总计：<SPAN
-                                    class="colSty ">￥</SPAN><SPAN class="colSty sty008"
-                                                                  id="spTotalAmount">0.00</SPAN><BR><SPAN
-                                    class="fontSty01">实际金额：<SPAN
-                                    class="colSty"><STRONG>￥</STRONG></SPAN><STRONG><SPAN class="colSty"
-                                                                                          id="spRealTotalAmount">0.00</SPAN></STRONG></SPAN></SPAN></TD></TR></TBODY></TABLE>
+                                    class="colSty sty008">件</SPAN>赠送积分总计：${zhongshu}<SPAN class="colSty" id="giftPoint">0</SPAN><SPAN class="colSty sty008">分</SPAN>花费积分总计：<SPAN
+                                    class="colSty " id="totalPoint">0</SPAN>
+                                <SPAN
+                                 class="colSty sty010">分</SPAN><SPAN id="decspan">产品金额总计：<SPAN
+                                    class="colSty ">￥</span></SPAN><SPAN class="colSty sty008"
+                                                                  id="spTotalAmount">.00</SPAN><BR><SPAN
+                                    class="fontSty01">实际金额<SPAN
+                                    class="colSty"><STRONG>￥<span id="spRealTotalAmount"></span></STRONG></SPAN><STRONG><SPAN class="colSty"
+                                                                                          id="spRealTotalAmount">.00</SPAN></STRONG></SPAN></SPAN></TD></TR></TBODY></TABLE>
                     <TABLE width="80%" border=0 align="center" cellPadding=0 cellSpacing=0 class="tabSty001">
                         <TBODY>
                         <TR>
@@ -126,7 +129,7 @@
                                     src="<%=request.getContextPath()%>/images/pic_gwc__r10_c8.jpg" alt=清空购物车 width=95 height=25 border="0" class="jl02"></A></TD>
                             <TD align=left>&nbsp;</TD>
                             <TD align=middle>&nbsp;</TD>
-                            <TD class="tdSty04" vAlign=top align=right colSpan=3><input style="background: url('<%=request.getContextPath()%>/images/pic_gwc__r2_c10.jpg');border:none;width:126px;height: 32px;cursor: hand" onclick="getCheckAdIds()"></TD></TR></TBODY></TABLE><!--Product end--></DIV>
+                            <TD class="tdSty04" vAlign=top align=right colSpan=3><input style="background: url('<%=request.getContextPath()%>/images/pic_gwc__r2_c10.jpg');border:none;width:126px;height: 32px;cursor: hand" onclick="tijioagouwuche(${valshow.id});"></TD></TR></TBODY></TABLE><!--Product end--></DIV>
                 <DIV id=OffProductList></DIV>
                 <TABLE cellSpacing=0 cellPadding=0 width=760 border=0>
                     <TBODY>

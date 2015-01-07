@@ -84,9 +84,10 @@
                         <TD vAlign=center align=left></TD></TR></TBODY></TABLE>
                 <table class="tabSty01" border="0" cellpadding="0" cellspacing="0" width="100%">
                     <tr class="trSty01" bgcolor="#7a7f89">
-                        <td class="reusableColor5 xxSty01 typeBottom" align="left" valign="middle">&nbsp;&nbsp;&nbsp;&nbsp;<strong>订单已提交</strong> <span id="Lb1newChange"></span></td>
+                        <td class="reusableColor5 xxSty01 typeBottom" align="left" valign="middle">&nbsp;&nbsp;&nbsp;&nbsp;<strong>核实订单信息</strong> <span id="Lb1newChange"></span></td>
                     </tr>
                     <tr>
+                        <td></td>
                         <td height="100" align="center" ><h3><span style="color:#f90;">您好，如没有问题，此页面为最后提交订单页面！</span></h3></td>
                     </tr>
                     <tr>
